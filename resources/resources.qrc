@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="PrestoChangeO">
+    <file>images/GrandWarlock-256x256.png</file>
     <file>images/magic-wand-64x64.png</file>
     <file>images/magic-wand.png</file>
   </qresource>

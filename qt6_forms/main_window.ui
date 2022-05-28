@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>667</width>
-    <height>638</height>
+    <width>674</width>
+    <height>730</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -25,8 +25,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>590</y>
-      <width>621</width>
+      <y>680</y>
+      <width>631</width>
       <height>31</height>
      </rect>
     </property>
@@ -50,8 +50,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>550</y>
-      <width>621</width>
+      <y>640</y>
+      <width>631</width>
       <height>31</height>
      </rect>
     </property>
@@ -68,8 +68,8 @@
    <widget class="QPushButton" name="RunButton">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>430</y>
+      <x>70</x>
+      <y>540</y>
       <width>231</width>
       <height>61</height>
      </rect>
@@ -95,8 +95,8 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>621</width>
-      <height>221</height>
+      <width>631</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="font">
@@ -113,8 +113,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>140</y>
+       <x>130</x>
+       <y>100</y>
        <width>431</width>
        <height>41</height>
       </rect>
@@ -128,10 +128,10 @@
     <widget class="QPushButton" name="ChooseOutputFolderButton">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>130</y>
+       <x>20</x>
+       <y>100</y>
        <width>101</width>
-       <height>61</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -156,8 +156,8 @@ Output Folder</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>50</y>
+       <x>130</x>
+       <y>40</y>
        <width>431</width>
        <height>41</height>
       </rect>
@@ -171,10 +171,10 @@ Output Folder</string>
     <widget class="QPushButton" name="ChooseInputFolderButton">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>40</y>
        <width>101</width>
-       <height>61</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -201,9 +201,9 @@ Input Folder</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>260</y>
-      <width>621</width>
-      <height>101</height>
+      <y>370</y>
+      <width>631</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
@@ -212,22 +212,174 @@ Input Folder</string>
      </font>
     </property>
     <property name="title">
-     <string>Extra File Options</string>
+     <string>Additional File Options</string>
     </property>
-    <widget class="QCheckBox" name="IncludeNonAudioCheckbox">
+    <widget class="QCheckBox" name="CopyMetadataCheckbox">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>40</y>
-       <width>431</width>
+       <width>601</width>
        <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>Copy Non-Audio Files to Output (e.g., images, log files, etc.)</string>
+      <string>Copy non-audio files (e.g., images, log files, etc.) to output folder(s)</string>
      </property>
      <property name="checked">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="IncludeNonAudioCheckbox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>601</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Attempt to copy file metadata (e.g., tags) to converted files</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="AboutButton">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>540</y>
+      <width>231</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::WheelFocus</enum>
+    </property>
+    <property name="text">
+     <string>About</string>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="ConversionOptionsGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>210</y>
+      <width>631</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Conversion Options</string>
+    </property>
+    <widget class="QComboBox" name="InputFileFormatComboBox">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="InputFileFormatLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Input File Format:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="OutputFileFormatLabel">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>40</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Output File Format:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="OutputFileFormatComboBox">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>70</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="OutputFileParametersLabel">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>40</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Output File Option:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="OutputFileParametersComboBox">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>70</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -236,6 +388,8 @@ Input Folder</string>
    <zorder>StatusLabel</zorder>
    <zorder>RunButton</zorder>
    <zorder>ExtraFileOptionsGroupbox</zorder>
+   <zorder>AboutButton</zorder>
+   <zorder>ConversionOptionsGroupBox</zorder>
   </widget>
  </widget>
  <resources>

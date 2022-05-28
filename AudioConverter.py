@@ -20,6 +20,7 @@ class AudioConverter(QThread):
     inputFolder = None
     outputFolder = None
     copyNonAudio = False
+    copyMetaData = True
     signals = None
 
     awaitingTermination = False
