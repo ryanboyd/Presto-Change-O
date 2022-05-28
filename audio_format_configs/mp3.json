@@ -1,0 +1,140 @@
+{
+    "format_name": "MP3",
+    "file_extension": ".mp3",
+    "is_input_type": false,
+    "is_output_type": true,
+    "ffmpeg_commands": {
+        "Variable Bitrate (VBR 0)": [
+            "-q",
+            "0"
+        ],
+        "Variable Bitrate (VBR 1)": [
+            "-q",
+            "1"
+        ],
+        "Variable Bitrate (VBR 2)": [
+            "-q",
+            "2"
+        ],
+        "Variable Bitrate (VBR 3)": [
+            "-q",
+            "3"
+        ],
+        "Variable Bitrate (VBR 4)": [
+            "-q",
+            "4"
+        ],
+        "Variable Bitrate (VBR 5)": [
+            "-q",
+            "5"
+        ],
+        "Variable Bitrate (VBR 6)": [
+            "-q",
+            "6"
+        ],
+        "Variable Bitrate (VBR 7)": [
+            "-q",
+            "7"
+        ],
+        "Variable Bitrate (VBR 8)": [
+            "-q",
+            "8"
+        ],
+        "Variable Bitrate (VBR 9)": [
+            "-q",
+            "9"
+        ],
+        "Constant Bitrate (320 kbps)": [
+            "-b",
+            "320k"
+        ],
+        "Constant Bitrate (256 kbps)": [
+            "-b",
+            "256k"
+        ],
+        "Constant Bitrate (224 kbps)": [
+            "-b",
+            "224k"
+        ],
+        "Constant Bitrate (192 kbps)": [
+            "-b",
+            "192k"
+        ],
+        "Constant Bitrate (160 kbps)": [
+            "-b",
+            "160k"
+        ],
+        "Constant Bitrate (128 kbps)": [
+            "-b",
+            "128k"
+        ],
+        "Constant Bitrate (112 kbps)": [
+            "-b",
+            "112k"
+        ],
+        "Constant Bitrate (96 kbps)": [
+            "-b",
+            "96k"
+        ],
+        "Constant Bitrate (80 kbps)": [
+            "-b",
+            "80k"
+        ],
+        "Constant Bitrate (64 kbps)": [
+            "-b",
+            "64k"
+        ],
+        "Constant Bitrate (48 kbps)": [
+            "-b",
+            "48k"
+        ],
+        "Constant Bitrate (40 kbps)": [
+            "-b",
+            "40k"
+        ],
+        "Constant Bitrate (32 kbps)": [
+            "-b",
+            "32k"
+        ],
+        "Constant Bitrate (24 kbps)": [
+            "-b",
+            "24k"
+        ],
+        "Constant Bitrate (16 kbps)": [
+            "-b",
+            "16k"
+        ],
+        "Constant Bitrate (8 kbps)": [
+            "-b",
+            "8k"
+        ]
+    },
+    "encoding_options": [
+        "Variable Bitrate (VBR 0)",
+        "Variable Bitrate (VBR 1)",
+        "Variable Bitrate (VBR 2)",
+        "Variable Bitrate (VBR 3)",
+        "Variable Bitrate (VBR 4)",
+        "Variable Bitrate (VBR 5)",
+        "Variable Bitrate (VBR 6)",
+        "Variable Bitrate (VBR 7)",
+        "Variable Bitrate (VBR 8)",
+        "Variable Bitrate (VBR 9)",
+        "Constant Bitrate (320 kbps)",
+        "Constant Bitrate (256 kbps)",
+        "Constant Bitrate (224 kbps)",
+        "Constant Bitrate (192 kbps)",
+        "Constant Bitrate (160 kbps)",
+        "Constant Bitrate (128 kbps)",
+        "Constant Bitrate (112 kbps)",
+        "Constant Bitrate (96 kbps)",
+        "Constant Bitrate (80 kbps)",
+        "Constant Bitrate (64 kbps)",
+        "Constant Bitrate (48 kbps)",
+        "Constant Bitrate (40 kbps)",
+        "Constant Bitrate (32 kbps)",
+        "Constant Bitrate (24 kbps)",
+        "Constant Bitrate (16 kbps)",
+        "Constant Bitrate (8 kbps)"
+    ]
+}

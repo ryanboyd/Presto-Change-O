@@ -1,0 +1,8 @@
+{
+    "format_name": "WAV",
+    "file_extension": ".wav",
+    "is_input_type": true,
+    "is_output_type": true,
+    "ffmpeg_commands": [],
+    "encoding_options": {}
+}

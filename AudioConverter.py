@@ -1,33 +1,37 @@
 import os
+import pathlib
+
+from audio_formats import *
 from shutil import copyfile
 from subprocess import Popen, PIPE, STARTUPINFO, STARTF_USESHOWWINDOW
 
 from PySide6.QtCore import QThread, SIGNAL, Signal, QObject
 
-#Because pydub relies on ffmpeg, we want to make sure that we have access to it before we import
-#anything from the pydub package. Here, we check to see whether it's already in the PATH var and,
-#if not, we go ahead and add it.
-ffmpeg_bin_path = os.path.join(os.getcwd(), "external_apps/ffmpeg-5.0.1-essentials_build/bin/")
-
-if ffmpeg_bin_path not in os.path.expandvars(os.getenv("PATH")).split(os.pathsep):
-    print("Adding ffmpeg directory to PATH")
-    os.environ["PATH"] += os.pathsep + ffmpeg_bin_path
+import audio_formats
 
 
 class AudioConverter(QThread):
     __errorHappened = False
 
-    inputFolder = None
-    outputFolder = None
-    copyNonAudio = False
-    copyMetaData = True
+    #parameters used to run the conversion
+    inputFolder: str
+    outputFolder: str
+    copyNonAudio: bool
+    copyMetaData: bool
+    input_audio_format: AudioFormat
+    output_audio_format: AudioFormat
+    encoding_settings: str
+
+
+    #specify a variable to hold all of the signals used in WorkerSignals()
     signals = None
 
+    #used to terminate the thread when user hits cancel button
     awaitingTermination = False
 
+    #These are all generally used to suppress terminal windows when calling ffmpeg
     startupinfo = STARTUPINFO()
     startupinfo.dwFlags |= STARTF_USESHOWWINDOW
-
     CREATE_NO_WINDOW = 0x08000000
 
     #we have to specify this signal in order to call it later
@@ -39,10 +43,11 @@ class AudioConverter(QThread):
         self.signals = WorkerSignals()
 
     def run(self):
-        self.FLAC_to_WAV()
+        self.Perform_Conversions()
+        return
 
 
-    def FLAC_to_WAV(self):
+    def Perform_Conversions(self):
 
         with open('log-conversions.txt', 'w', encoding='utf-8') as logfile_out:
 
@@ -58,7 +63,7 @@ class AudioConverter(QThread):
                     if self.awaitingTermination:
                         break
 
-                    if single_file.lower().endswith('.flac'):
+                    if pathlib.Path(single_file.lower()).suffix == self.input_audio_format.file_extension:
 
                         #print(f"Converting {single_file}...")
                         self.signals.report_status.emit(f"Converting {single_file}...")
@@ -68,19 +73,30 @@ class AudioConverter(QThread):
                         if not os.path.exists(outDir):
                             os.mkdir(outDir)
 
+                        #get the full path of the input file
                         fileIn = os.path.join(root, single_file)
-                        fileOut = os.path.join(outDir, single_file.replace('.flac', '.wav'))
+
+                        #get the output file name
+                        fileOut = os.path.join(outDir, single_file)
+                        #...then change the extension to the new one
+                        fileOut = os.path.splitext(fileOut)[0] + self.output_audio_format.file_extension
 
                         ffmpeg_cmd_to_execute = ["ffmpeg",
                                                  "-y",
                                                  "-i", fileIn,
-                                                 "-map_metadata", "0",
-                                                 "-id3v2_version", "3",
-                                                 fileOut,
                                                  ]
 
+                        if self.copyMetaData:
+                            ffmpeg_cmd_to_execute.extend(["-map_metadata", "0",
+                                                          "-id3v2_version", "3"])
+
+                        if self.encoding_settings is not None:
+                            ffmpeg_cmd_to_execute.extend(self.output_audio_format.ffmpeg_commands[self.encoding_settings])
+
+                        ffmpeg_cmd_to_execute.append(fileOut)
+
                         #subprocess.call(ffmpeg_cmd_to_execute, creationflags=self.CREATE_NO_WINDOW)
-                        p = Popen(ffmpeg_cmd_to_execute, stdin=PIPE, stdout=logfile_out, stderr=logfile_out,
+                        p = Popen(ffmpeg_cmd_to_execute, stdin=logfile_out, stdout=logfile_out, stderr=logfile_out,
                                   startupinfo=self.startupinfo,
                                   universal_newlines=True)
                         output, err = p.communicate()

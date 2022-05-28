@@ -1,0 +1,75 @@
+{
+    "format_name": "FLAC",
+    "file_extension": ".flac",
+    "is_input_type": true,
+    "is_output_type": true,
+    "ffmpeg_commands": {
+        "Compression Level: 0": [
+            "-compression_level",
+            "0"
+        ],
+        "Compression Level: 1": [
+            "-compression_level",
+            "1"
+        ],
+        "Compression Level: 2": [
+            "-compression_level",
+            "2"
+        ],
+        "Compression Level: 3": [
+            "-compression_level",
+            "3"
+        ],
+        "Compression Level: 4": [
+            "-compression_level",
+            "4"
+        ],
+        "Compression Level: 5": [
+            "-compression_level",
+            "5"
+        ],
+        "Compression Level: 6": [
+            "-compression_level",
+            "6"
+        ],
+        "Compression Level: 7": [
+            "-compression_level",
+            "7"
+        ],
+        "Compression Level: 8": [
+            "-compression_level",
+            "8"
+        ],
+        "Compression Level: 9": [
+            "-compression_level",
+            "9"
+        ],
+        "Compression Level: 10": [
+            "-compression_level",
+            "10"
+        ],
+        "Compression Level: 11": [
+            "-compression_level",
+            "11"
+        ],
+        "Compression Level: 12": [
+            "-compression_level",
+            "12"
+        ]
+    },
+    "encoding_options": [
+        "Compression Level: 12",
+        "Compression Level: 11",
+        "Compression Level: 10",
+        "Compression Level: 9",
+        "Compression Level: 8",
+        "Compression Level: 7",
+        "Compression Level: 6",
+        "Compression Level: 5",
+        "Compression Level: 4",
+        "Compression Level: 3",
+        "Compression Level: 2",
+        "Compression Level: 1",
+        "Compression Level: 0"
+    ]
+}

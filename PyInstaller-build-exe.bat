@@ -1,2 +1,2 @@
-pyinstaller --clean --noconsole --onedir --name "Presto-Change-O" --paths=qt6_forms --add-data "external_apps;external_apps" --noconfirm main.py
+pyinstaller --clean --noconsole --onedir --name "Presto-Change-O" --paths=qt6_forms --add-data "external_apps;external_apps" --add-data "audio_format_configs;audio_format_configs" --noconfirm main.py
 pause

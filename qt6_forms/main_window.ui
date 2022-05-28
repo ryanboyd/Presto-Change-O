@@ -214,7 +214,7 @@ Input Folder</string>
     <property name="title">
      <string>Additional File Options</string>
     </property>
-    <widget class="QCheckBox" name="CopyMetadataCheckbox">
+    <widget class="QCheckBox" name="IncludeNonAudioCheckbox">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -230,7 +230,7 @@ Input Folder</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="IncludeNonAudioCheckbox">
+    <widget class="QCheckBox" name="CopyMetadataCheckbox">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -294,7 +294,7 @@ Input Folder</string>
       <rect>
        <x>20</x>
        <y>70</y>
-       <width>151</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
@@ -304,7 +304,7 @@ Input Folder</string>
       <rect>
        <x>20</x>
        <y>40</y>
-       <width>151</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
@@ -314,18 +314,18 @@ Input Folder</string>
       </font>
      </property>
      <property name="text">
-      <string>Input File Format:</string>
+      <string>Input File Type</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="OutputFileFormatLabel">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>160</x>
        <y>40</y>
-       <width>151</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
@@ -335,18 +335,18 @@ Input Folder</string>
       </font>
      </property>
      <property name="text">
-      <string>Output File Format:</string>
+      <string>Output File Type</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QComboBox" name="OutputFileFormatComboBox">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>160</x>
        <y>70</y>
-       <width>151</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
@@ -354,9 +354,9 @@ Input Folder</string>
     <widget class="QLabel" name="OutputFileParametersLabel">
      <property name="geometry">
       <rect>
-       <x>460</x>
+       <x>300</x>
        <y>40</y>
-       <width>151</width>
+       <width>311</width>
        <height>31</height>
       </rect>
      </property>
@@ -366,18 +366,18 @@ Input Folder</string>
       </font>
      </property>
      <property name="text">
-      <string>Output File Option:</string>
+      <string>Output Encoding Options</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QComboBox" name="OutputFileParametersComboBox">
      <property name="geometry">
       <rect>
-       <x>460</x>
+       <x>300</x>
        <y>70</y>
-       <width>151</width>
+       <width>311</width>
        <height>31</height>
       </rect>
      </property>
