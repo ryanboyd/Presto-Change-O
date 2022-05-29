@@ -108,33 +108,5 @@
             "-b",
             "8k"
         ]
-    },
-    "encoding_options": [
-        "Variable Bitrate (VBR 0)",
-        "Variable Bitrate (VBR 1)",
-        "Variable Bitrate (VBR 2)",
-        "Variable Bitrate (VBR 3)",
-        "Variable Bitrate (VBR 4)",
-        "Variable Bitrate (VBR 5)",
-        "Variable Bitrate (VBR 6)",
-        "Variable Bitrate (VBR 7)",
-        "Variable Bitrate (VBR 8)",
-        "Variable Bitrate (VBR 9)",
-        "Constant Bitrate (320 kbps)",
-        "Constant Bitrate (256 kbps)",
-        "Constant Bitrate (224 kbps)",
-        "Constant Bitrate (192 kbps)",
-        "Constant Bitrate (160 kbps)",
-        "Constant Bitrate (128 kbps)",
-        "Constant Bitrate (112 kbps)",
-        "Constant Bitrate (96 kbps)",
-        "Constant Bitrate (80 kbps)",
-        "Constant Bitrate (64 kbps)",
-        "Constant Bitrate (48 kbps)",
-        "Constant Bitrate (40 kbps)",
-        "Constant Bitrate (32 kbps)",
-        "Constant Bitrate (24 kbps)",
-        "Constant Bitrate (16 kbps)",
-        "Constant Bitrate (8 kbps)"
-    ]
+    }
 }

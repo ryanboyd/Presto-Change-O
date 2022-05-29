@@ -56,20 +56,5 @@
             "-compression_level",
             "12"
         ]
-    },
-    "encoding_options": [
-        "Compression Level: 12",
-        "Compression Level: 11",
-        "Compression Level: 10",
-        "Compression Level: 9",
-        "Compression Level: 8",
-        "Compression Level: 7",
-        "Compression Level: 6",
-        "Compression Level: 5",
-        "Compression Level: 4",
-        "Compression Level: 3",
-        "Compression Level: 2",
-        "Compression Level: 1",
-        "Compression Level: 0"
-    ]
+    }
 }

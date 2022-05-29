@@ -102,6 +102,7 @@ class MainWindow(QMainWindow):
 
         if self.audioConverter.isRunning():
             self.audioConverter.awaitingTermination = True
+            self.StatusReport(statusText="Cancelling... please wait...")
             return
 
         if self.inputFolder == None or self.inputFolder == "":

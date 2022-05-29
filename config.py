@@ -29,10 +29,11 @@ def init():
             with open(os.path.join(audio_format_configs_dir, filename), 'r', encoding='utf-8') as file_in:
                 config_data = json.load(file_in)
 
+
                 newAudioFormat = audio_formats.AudioFormat(format_name=config_data["format_name"],
                                                            file_extension=config_data["file_extension"],
                                                            ffmpeg_commands=config_data["ffmpeg_commands"],
-                                                           encoding_options=config_data["encoding_options"],
+                                                           encoding_options=list(config_data["ffmpeg_commands"].keys()),
                                                            is_input_type=config_data["is_input_type"],
                                                            is_output_type=config_data["is_output_type"])
 
