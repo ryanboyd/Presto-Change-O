@@ -3,8 +3,11 @@
 ## About
  Presto Change-O is a GUI program for batch converting audio files from one format to another. This software is primarily intended for people who do not have any programming experience, are not particularly savvy with computers, or just generally don't want to spend their time/energy learning about how to use transcoding tools. Made primarily in Python.
 
-## Status
-This program should always be thought of as a work in progress. If there are formats/settings that you would like to see added or changed, please contact the software author
+## Software Status
+This program should always be thought of as a work in progress. If there are formats/settings that you would like to see added or changed, please contact the software's author.
+
+## How to Run
+To run this software, simply download a copy of the compiled application from the [latest release](https://github.com/Red-Warlock/Presto-Change-O/releases) and extract it to your preferred location on your hard drive. Once you have extracted the release contents, you just need to run the file **Presto-Change-O.exe**.
 
 ## How to Use
 The software itself is intended to be quite straight-forward and assumes that you have some audio files that you would like to convert from one format to another. As such, you need to tell the application at least 4 things:
