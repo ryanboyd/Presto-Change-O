@@ -7,6 +7,8 @@ from AudioFormatClass import *
 #name of our application
 myappid = "Presto Change-O"
 
+current_version = "1.00"
+
 #important paths that we're going to work with
 ffmpeg_bin_path = os.path.join(os.getcwd(), "external_apps/ffmpeg-2022-05-26-git-0dcbe1c1aa-essentials_build/bin/")
 audio_format_configs_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "audio_format_configs")
