@@ -6,6 +6,11 @@
 ## Software Status
 This program should always be thought of as a work in progress. If there are formats/settings that you would like to see added or changed, please contact the software's author.
 
+## Requirements
+Currently, this project is focused primarily on the Windows operating system. If you are using Windows, you should be able to simply download the [latest release](https://github.com/Red-Warlock/Presto-Change-O/releases) and follow the instructions below to run the program like you would any other program.
+
+That said, it should be fairly trivial to run this application on Mac or Linux as well: the building blocks of this application (Python, ffmpeg, and Qt) are all multi-platform and, thus, it should be possible to run this software on other systems as well, albeit not as directly. To run this as a standard Python application, you will want to ensure that you have the [Qt framework](https://www.qt.io/) installed, and you will want to swap out the pack-in version of ffmpeg with one that is built for your platform (e.g., [Linux](https://www.ffmpeg.org/download.html#build-linux) or [Mac](https://www.ffmpeg.org/download.html#build-mac).)
+
 ## How to Run
 To run this software, simply download a copy of the compiled application from the [latest release](https://github.com/Red-Warlock/Presto-Change-O/releases) and extract it to your preferred location on your hard drive. Once you have extracted the release contents, you just need to run the file **Presto-Change-O.exe**.
 
