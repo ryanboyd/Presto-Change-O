@@ -1,8 +1,9 @@
 {
     "format_name": "MP3",
     "file_extension": ".mp3",
-    "is_input_type": false,
+    "is_input_type": true,
     "is_output_type": true,
+    "default_setting": "Variable Bitrate (VBR 0)",
     "ffmpeg_commands": {
         "Variable Bitrate (VBR 0)": [
             "-q",
@@ -108,5 +109,7 @@
             "-b",
             "8k"
         ]
-    }
+    },
+    "required_output_params": null,
+    "required_input_params": null
 }

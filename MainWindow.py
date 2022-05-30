@@ -1,10 +1,11 @@
 from pathlib import Path
+import json
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from PySide6.QtCore import Qt, Signal, Slot, SLOT, SIGNAL, QObject, QSize
 
 import config
-from audio_formats import get_audio_format
+from AudioFormatClass import get_audio_format
 from qt6_forms.main_window import Ui_MainWindow
 
 from AudioConverter import AudioConverter
@@ -14,10 +15,10 @@ from show_about import ShowAbout
 
 class MainWindow(QMainWindow):
 
-    inputFolder = 'C:/Users/ahitp/Downloads/Carpenter Brut'
-    outputFolder = 'C:/Users/ahitp/Downloads/output'
-
     msgBox = MessageBoxShower(appId=config.myappid)
+
+    inputFolder = ""
+    outputFolder = ""
 
     audioConverter = AudioConverter()
 
@@ -40,15 +41,7 @@ class MainWindow(QMainWindow):
         #the encoding options combobox
         self.ui.OutputFileFormatComboBox.currentIndexChanged.connect(self.UpdateEncodingOptions)
 
-        #if we're starting with pre-selected input/output directories, we just go ahead
-        #and load those up/display them in the LineEdit boxes from the get-go
-        if self.inputFolder is not None and self.inputFolder != "":
-            self.ui.InputFolderLineEdit.setText(self.inputFolder)
-        if self.outputFolder is not None and self.outputFolder != "":
-            self.ui.OutputFolderLineEdit.setText(self.outputFolder)
-
         #add the formats to the appropriate comboboxes
-
         input_formats = []
         output_formats = []
 
@@ -58,18 +51,37 @@ class MainWindow(QMainWindow):
             if get_audio_format(audio_format).is_output_type:
                 output_formats.append(audio_format)
 
-        self.ui.InputFileFormatComboBox.addItems(input_formats)
-        index = self.ui.InputFileFormatComboBox.findText("FLAC", Qt.MatchFixedString)
-        if index >= 0:
-            self.ui.InputFileFormatComboBox.setCurrentIndex(index)
+        #Try picking some default formats. These will be overridden anyways by the ImportPreferences() function,
+        #but we're doing it here just in case there is failure in general (or no .prf file yet exists)
+        try:
+            self.ui.InputFileFormatComboBox.addItems(input_formats)
+            index = self.ui.InputFileFormatComboBox.findText("FLAC", Qt.MatchFixedString)
+            if index >= 0:
+                self.ui.InputFileFormatComboBox.setCurrentIndex(index)
 
-        self.ui.OutputFileFormatComboBox.addItems(output_formats)
-        index = self.ui.OutputFileFormatComboBox.findText("WAV", Qt.MatchFixedString)
-        if index >= 0:
-            self.ui.OutputFileFormatComboBox.setCurrentIndex(index)
+            self.ui.OutputFileFormatComboBox.addItems(output_formats)
+            index = self.ui.OutputFileFormatComboBox.findText("WAV", Qt.MatchFixedString)
+            if index >= 0:
+                self.ui.OutputFileFormatComboBox.setCurrentIndex(index)
+        except:
+            None
 
         self.UpdateEncodingOptions()
 
+        self.ImportPreferences()
+
+        #if we're starting with pre-selected input/output directories, we just go ahead
+        #and load those up/display them in the LineEdit boxes from the get-go
+        if self.inputFolder is not None and self.inputFolder != "":
+            self.ui.InputFolderLineEdit.setText(self.inputFolder)
+        if self.outputFolder is not None and self.outputFolder != "":
+            self.ui.OutputFolderLineEdit.setText(self.outputFolder)
+
+
+    def closeEvent(self, event):
+        # do stuff
+        self.ExportPreferences()
+        event.accept()  # let the window close
 
 
     @Slot()
@@ -167,6 +179,13 @@ class MainWindow(QMainWindow):
 
         self.ui.OutputFileParametersComboBox.clear()
         self.ui.OutputFileParametersComboBox.addItems(get_audio_format(selectedFiletype).encoding_options)
+
+        #select the default
+        if get_audio_format(selectedFiletype).default_setting is not None:
+            index = self.ui.OutputFileParametersComboBox.findText(get_audio_format(selectedFiletype).default_setting, Qt.MatchFixedString)
+            if index >= 0:
+                self.ui.OutputFileParametersComboBox.setCurrentIndex(index)
+
         self.SetParameterComboBoxEnabledStatus()
 
         return
@@ -189,6 +208,7 @@ class MainWindow(QMainWindow):
         self.ui.StatusLabel.setText("Waiting to process...")
         self.EnableControls()
 
+        #destroy the old member of the AudioConverter() class and create a fresh and squeaky clean new instantiation.
         self.audioConverter = AudioConverter()
 
         return
@@ -231,3 +251,44 @@ class MainWindow(QMainWindow):
         else:
             self.ui.OutputFileParametersComboBox.setEnabled(False)
             self.ui.OutputFileParametersComboBox.addItems(["None Available"])
+
+    def ImportPreferences(self):
+        try:
+            with open('settings.prf', 'r', encoding='utf-8') as file_in:
+                settings_data = json.load(file_in)
+
+            self.inputFolder = settings_data["inputFolder"]
+            self.outputFolder = settings_data["outputFolder"]
+
+            index = self.ui.InputFileFormatComboBox.findText(settings_data["inputFormat"], Qt.MatchFixedString)
+            if index >= 0:
+                self.ui.InputFileFormatComboBox.setCurrentIndex(index)
+
+            index = self.ui.OutputFileFormatComboBox.findText(settings_data["outputFormat"], Qt.MatchFixedString)
+            if index >= 0:
+                self.ui.OutputFileFormatComboBox.setCurrentIndex(index)
+
+            index = self.ui.OutputFileParametersComboBox.findText(settings_data["encodingOptions"], Qt.MatchFixedString)
+            if index >= 0:
+                self.ui.OutputFileParametersComboBox.setCurrentIndex(index)
+
+        except Exception as ex:
+            print("Failed to import preferences file.")
+            print(ex)
+
+    def ExportPreferences(self):
+        try:
+            currentSettings = {
+                "inputFolder": self.inputFolder,
+                "outputFolder": self.outputFolder,
+                "inputFormat": self.ui.InputFileFormatComboBox.currentText(),
+                "outputFormat": self.ui.OutputFileFormatComboBox.currentText(),
+                "encodingOptions": self.ui.OutputFileParametersComboBox.currentText()
+            }
+
+            with open('settings.prf', 'w', encoding='utf-8') as file_out:
+                json.dump(currentSettings, file_out, ensure_ascii=False, indent=4)
+
+        except Exception as ex:
+            print('Failed to export preferences file.')
+            print(ex)

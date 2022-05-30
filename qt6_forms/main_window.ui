@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>674</width>
-    <height>730</height>
+    <width>672</width>
+    <height>692</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -25,7 +25,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>680</y>
+      <y>640</y>
       <width>631</width>
       <height>31</height>
      </rect>
@@ -50,7 +50,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>640</y>
+      <y>600</y>
       <width>631</width>
       <height>31</height>
      </rect>
@@ -69,7 +69,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>540</y>
+      <y>500</y>
       <width>231</width>
       <height>61</height>
      </rect>
@@ -200,10 +200,10 @@ Input Folder</string>
    <widget class="QGroupBox" name="ExtraFileOptionsGroupbox">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>370</y>
-      <width>631</width>
-      <height>141</height>
+      <x>390</x>
+      <y>210</y>
+      <width>261</width>
+      <height>261</height>
      </rect>
     </property>
     <property name="font">
@@ -214,33 +214,36 @@ Input Folder</string>
     <property name="title">
      <string>Additional File Options</string>
     </property>
-    <widget class="QCheckBox" name="IncludeNonAudioCheckbox">
+    <widget class="QCheckBox" name="CopyMetadataCheckbox">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
-       <width>601</width>
-       <height>31</height>
+       <y>100</y>
+       <width>231</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="text">
-      <string>Copy non-audio files (e.g., images, log files, etc.) to output folder(s)</string>
+      <string>Attempt to copy file metadata
+(e.g., tags) to transcoded files</string>
      </property>
      <property name="checked">
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="CopyMetadataCheckbox">
+    <widget class="QCheckBox" name="IncludeNonAudioCheckbox">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>80</y>
-       <width>601</width>
-       <height>31</height>
+       <y>30</y>
+       <width>231</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="text">
-      <string>Attempt to copy file metadata (e.g., tags) to converted files</string>
+      <string>Copy non-audio files
+(e.g., images, log files, etc.)
+to output folder(s)</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -251,7 +254,7 @@ Input Folder</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>540</y>
+      <y>500</y>
       <width>231</width>
       <height>61</height>
      </rect>
@@ -277,8 +280,8 @@ Input Folder</string>
      <rect>
       <x>20</x>
       <y>210</y>
-      <width>631</width>
-      <height>141</height>
+      <width>351</width>
+      <height>261</height>
      </rect>
     </property>
     <property name="font">
@@ -293,8 +296,8 @@ Input Folder</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>70</y>
-       <width>121</width>
+       <y>60</y>
+       <width>311</width>
        <height>31</height>
       </rect>
      </property>
@@ -303,7 +306,7 @@ Input Folder</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>40</y>
+       <y>30</y>
        <width>121</width>
        <height>31</height>
       </rect>
@@ -314,7 +317,7 @@ Input Folder</string>
       </font>
      </property>
      <property name="text">
-      <string>Input File Type</string>
+      <string>Input Format</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -323,8 +326,8 @@ Input Folder</string>
     <widget class="QLabel" name="OutputFileFormatLabel">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>40</y>
+       <x>20</x>
+       <y>100</y>
        <width>121</width>
        <height>31</height>
       </rect>
@@ -335,7 +338,7 @@ Input Folder</string>
       </font>
      </property>
      <property name="text">
-      <string>Output File Type</string>
+      <string>Output Format</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -344,9 +347,9 @@ Input Folder</string>
     <widget class="QComboBox" name="OutputFileFormatComboBox">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>70</y>
-       <width>121</width>
+       <x>20</x>
+       <y>130</y>
+       <width>311</width>
        <height>31</height>
       </rect>
      </property>
@@ -354,8 +357,8 @@ Input Folder</string>
     <widget class="QLabel" name="OutputFileParametersLabel">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>40</y>
+       <x>20</x>
+       <y>170</y>
        <width>311</width>
        <height>31</height>
       </rect>
@@ -375,8 +378,8 @@ Input Folder</string>
     <widget class="QComboBox" name="OutputFileParametersComboBox">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>70</y>
+       <x>20</x>
+       <y>200</y>
        <width>311</width>
        <height>31</height>
       </rect>

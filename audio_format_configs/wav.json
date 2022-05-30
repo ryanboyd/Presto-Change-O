@@ -3,5 +3,8 @@
     "file_extension": ".wav",
     "is_input_type": true,
     "is_output_type": true,
-    "ffmpeg_commands": {}
+    "default_setting": null,
+    "ffmpeg_commands": {},
+    "required_output_params": null,
+    "required_input_params": null
 }

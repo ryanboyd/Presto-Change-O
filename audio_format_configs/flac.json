@@ -3,6 +3,7 @@
     "file_extension": ".flac",
     "is_input_type": true,
     "is_output_type": true,
+    "default_setting": "Compression Level: 5",
     "ffmpeg_commands": {
         "Compression Level: 0": [
             "-compression_level",
@@ -56,5 +57,7 @@
             "-compression_level",
             "12"
         ]
-    }
+    },
+    "required_output_params": null,
+    "required_input_params": null
 }

@@ -2,13 +2,13 @@ import ctypes
 import os
 import json
 import pathlib
-import audio_formats
+from AudioFormatClass import *
 
 #name of our application
 myappid = "Presto Change-O"
 
 #important paths that we're going to work with
-ffmpeg_bin_path = os.path.join(os.getcwd(), "external_apps/ffmpeg-5.0.1-essentials_build/bin/")
+ffmpeg_bin_path = os.path.join(os.getcwd(), "external_apps/ffmpeg-2022-05-26-git-0dcbe1c1aa-essentials_build/bin/")
 audio_format_configs_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "audio_format_configs")
 
 #dictionary that holds all of our file conversion data for ffmpeg, etc.
@@ -27,17 +27,25 @@ def init():
         if filename_extension  == ".json":
 
             with open(os.path.join(audio_format_configs_dir, filename), 'r', encoding='utf-8') as file_in:
-                config_data = json.load(file_in)
 
+                try:
+                    config_data = json.load(file_in)
 
-                newAudioFormat = audio_formats.AudioFormat(format_name=config_data["format_name"],
-                                                           file_extension=config_data["file_extension"],
-                                                           ffmpeg_commands=config_data["ffmpeg_commands"],
-                                                           encoding_options=list(config_data["ffmpeg_commands"].keys()),
-                                                           is_input_type=config_data["is_input_type"],
-                                                           is_output_type=config_data["is_output_type"])
+                    newAudioFormat = AudioFormat(format_name=config_data["format_name"],
+                                                               file_extension=config_data["file_extension"],
+                                                               ffmpeg_commands=config_data["ffmpeg_commands"],
+                                                               encoding_options=list(config_data["ffmpeg_commands"].keys()),
+                                                               is_input_type=config_data["is_input_type"],
+                                                               is_output_type=config_data["is_output_type"],
+                                                               default_setting=config_data["default_setting"],
+                                                               required_output_params=config_data["required_output_params"],
+                                                               required_input_params=config_data["required_input_params"])
 
-                file_formats[newAudioFormat.format_name] = newAudioFormat
+                    file_formats[newAudioFormat.format_name] = newAudioFormat
+
+                except Exception as ex:
+                    print(f"There was an error loading {filename}")
+                    print(str(ex))
 
 
     #make sure that ffmpeg is in our path

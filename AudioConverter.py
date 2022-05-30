@@ -1,13 +1,13 @@
 import os
 import pathlib
 
-from audio_formats import *
+from AudioFormatClass import *
 from shutil import copyfile
 from subprocess import Popen, PIPE, STARTUPINFO, STARTF_USESHOWWINDOW
 
 from PySide6.QtCore import QThread, SIGNAL, Signal, QObject
 
-import audio_formats
+import AudioFormatClass
 
 
 class AudioConverter(QThread):
@@ -43,6 +43,7 @@ class AudioConverter(QThread):
         self.signals = WorkerSignals()
 
     def run(self):
+        self.awaitingTermination = False
         self.Perform_Conversions()
         return
 
@@ -81,17 +82,31 @@ class AudioConverter(QThread):
                         #...then change the extension to the new one
                         fileOut = os.path.splitext(fileOut)[0] + self.output_audio_format.file_extension
 
-                        ffmpeg_cmd_to_execute = ["ffmpeg",
-                                                 "-y",
-                                                 "-i", fileIn,
-                                                 ]
+                        ffmpeg_cmd_to_execute = ["ffmpeg", "-y"]
+
+                        #If there are required input parameters for this format (which is fairly rare),
+                        #then we append them here
+                        if self.input_audio_format.required_input_params is not None:
+                            ffmpeg_cmd_to_execute.extend(self.input_audio_format.required_output_params)
+
+                        #Now we add the input filename
+                        ffmpeg_cmd_to_execute.extend(["-i", fileIn])
 
                         if self.copyMetaData:
                             ffmpeg_cmd_to_execute.extend(["-map_metadata", "0",
                                                           "-id3v2_version", "3"])
 
+                        #if there are encoding settings that have been selected, then we add those to the
+                        #command line call that we're going to make
                         if self.encoding_settings is not None:
-                            ffmpeg_cmd_to_execute.extend(self.output_audio_format.ffmpeg_commands[self.encoding_settings])
+                            ffmpeg_cmd_to_execute.extend(
+                                self.output_audio_format.ffmpeg_commands[self.encoding_settings])
+
+                        #If there are any required parameters, then we add those on as well
+                        if self.output_audio_format.required_output_params is not None:
+                            ffmpeg_cmd_to_execute.extend(
+                                self.output_audio_format.required_output_params)
+
 
                         ffmpeg_cmd_to_execute.append(fileOut)
 

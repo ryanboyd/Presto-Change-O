@@ -1,0 +1,71 @@
+{
+    "format_name": "Ogg",
+    "file_extension": ".ogg",
+    "is_input_type": true,
+    "is_output_type": true,
+    "default_setting": "Quality: 10",
+    "ffmpeg_commands": {
+        "Quality: 10": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "10"],
+        "Quality: 9": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "9"],
+        "Quality: 8": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "8"],
+        "Quality: 7": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "7"],
+        "Quality: 6": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "6"],
+        "Quality: 5": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "5"],
+        "Quality: 4": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "4"],
+        "Quality: 3": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "3"],
+        "Quality: 2": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "2"],
+        "Quality: 1": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "1"],
+        "Quality: 0": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "0"],
+        "Quality: -1": [
+            "-c:a",
+            "libvorbis",
+            "-qscale:a",
+            "-1"]
+    },
+    "required_output_params": null,
+    "required_input_params": null
+}

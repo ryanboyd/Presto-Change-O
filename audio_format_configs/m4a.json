@@ -1,0 +1,10 @@
+{
+    "format_name": "M4A",
+    "file_extension": ".m4a",
+    "is_input_type": true,
+    "is_output_type": false,
+    "default_setting": null,
+    "ffmpeg_commands": {},
+    "required_output_params": null,
+    "required_input_params": null
+}

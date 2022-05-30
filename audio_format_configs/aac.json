@@ -1,0 +1,91 @@
+{
+    "format_name": "M4A (AAC Encoding)",
+    "file_extension": ".m4a",
+    "is_input_type": false,
+    "is_output_type": true,
+    "default_setting": "Variable Bitrate (VBR 5)",
+    "ffmpeg_commands": {
+        "Constant Bitrate (512 kBit/s)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "512k"
+        ],
+        "Constant Bitrate (384 kBit/s)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "384k"
+        ],
+        "Constant Bitrate (256 kBit/s)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "256k"
+        ],
+        "Constant Bitrate (128 kBit/s)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "128k"
+        ],
+        "Constant Bitrate (64 kBit/s)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "64k"
+        ],
+        "Variable Bitrate (VBR 5)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-vbr",
+            "5"
+        ],
+        "Variable Bitrate (VBR 4)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-vbr",
+            "4"
+        ],
+        "Variable Bitrate (VBR 3)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-vbr",
+            "3"
+        ],
+        "Variable Bitrate (VBR 2)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-vbr",
+            "2"
+        ],
+        "Variable Bitrate (VBR 1)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-vbr",
+            "1"
+        ]
+    },
+    "required_output_params": null,
+    "required_input_params": null
+}

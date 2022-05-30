@@ -1,0 +1,10 @@
+{
+    "format_name": "AIFF",
+    "file_extension": ".aiff",
+    "is_input_type": true,
+    "is_output_type": true,
+    "default_setting": null,
+    "ffmpeg_commands": {},
+    "required_output_params": null,
+    "required_input_params": null
+}

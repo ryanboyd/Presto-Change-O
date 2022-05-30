@@ -1,0 +1,18 @@
+{
+    "format_name": "PCM (Raw, signed 16-bit little-endian)",
+    "file_extension": ".raw",
+    "is_input_type": true,
+    "is_output_type": true,
+    "default_setting": null,
+    "ffmpeg_commands": {},
+    "required_output_params": [
+            "-f",
+            "s16le",
+            "-acodec",
+            "pcm_s16le"
+        ],
+    "required_input_params": [
+            "-f",
+            "s16le"
+        ]
+}
