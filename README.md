@@ -6,6 +6,8 @@
 ## About
  Presto Change-O is a GUI program for batch converting audio files from one format to another. This software is primarily intended for people who do not have any programming experience, are not particularly savvy with computers, or just generally don't want to spend their time/energy learning about how to use transcoding tools. Made primarily in Python.
 
+ Currently supporeted formats include FLAC, ALAC, AIFF, APE, AAC, MP3, Ogg, WAV... and probably more. 
+
 ## Software Status
 This program should always be thought of as a work in progress. If there are formats/settings that you would like to see added or changed, please contact the software's author.
 
