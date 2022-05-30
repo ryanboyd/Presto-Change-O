@@ -1,7 +1,0 @@
-{
-    "inputFolder": "C:/Users/ahitp/Downloads/Carpenter Brut",
-    "outputFolder": "C:/Users/ahitp/Downloads/output - flac to mp3",
-    "inputFormat": "FLAC",
-    "outputFormat": "MP3",
-    "encodingOptions": "Variable Bitrate (VBR 0)"
-}

@@ -16,6 +16,14 @@ The software itself is intended to be quite straight-forward and assumes that yo
 
 Depending on what type of file you would like to get as output, you may be asked to choose some basic parameters for the transcoding process. For example, if you are converting some FLAC files to MP3 files, you will be given a selection of transcoding options for the quality of the MP3 files (for example, Variable Bitrate versus Constant Bitrate). In most cases, the default selection provided by the software is likely ideal for most people.
 
+Once you have set the appropriate options above, simply click the **Convert Files!** button and the software should handle the rest.
+
+## Adding Additional Formats
+If you would like to add new formats and have a decent grasp of how ffmpeg works, you can add new format files to the **audio_format_configs** application folder. The format of these files is fairly straight-forward and self-explanatory, and you should be able to simply copy an existing file and modify it to your liking. However, if there is a format that you would like to have added to Presto Change-O as a default pack-in, please just let me know.
+
+## Troubleshooting
+While the software runs, it saves an output log generated during the conversion process to a file named **log-conversions.txt**. If you are encountering problems (for example, files not converting correctly, or files not converting at all), this log should be the first place that you look. If you need to request help or post an issue, it will be helpful if you share your log file so that I can see what is going wrong.
+
 ## A Note about Lossy versus Lossless Formats
 
 For the user who is *very* unfamiliar with audio file formats, it is important to understand the distinction between formats that are perfect, one-to-one copies of the source material (i.e., lossless, such as FLAC files) versus files that remove some of the original audio data to make the files smaller (i.e., lossy, such as MP3 files). A complete discussion on the technical aspects and implications of lossless vs. lossy file formats is beyond the scope of this README, however, it is important to note that it is generally poor form to convert from lossy formats to lossless formats. There are some exceptions to this (for example, if you are working with a program or hardware that *reqires* a WAV file specifically, you may need to convert your MP3 to a lossless WAV file. However, outside of these rare circumstances, it is advised that you only convert *to* lossless formats *from* other lossless formats.
