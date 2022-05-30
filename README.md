@@ -29,6 +29,8 @@ The software itself is intended to be quite straight-forward and assumes that yo
 
 Depending on what type of file you would like to get as output, you may be asked to choose some basic parameters for the transcoding process. For example, if you are converting some FLAC files to MP3 files, you will be given a selection of transcoding options for the quality of the MP3 files (for example, Variable Bitrate versus Constant Bitrate). In most cases, the default selection provided by the software is likely ideal for most people.
 
+![Magic!](https://github.com/Red-Warlock/Presto-Change-O/blob/main/resources/images/screenshot.png)
+
 Once you have set the appropriate options above, simply click the **Convert Files!** button and the software should handle the rest.
 
 ## Adding Additional Formats
