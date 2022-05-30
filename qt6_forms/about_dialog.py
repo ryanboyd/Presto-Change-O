@@ -29,6 +29,7 @@ class Ui_Dialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Dialog.sizePolicy().hasHeightForWidth())
         Dialog.setSizePolicy(sizePolicy)
+        Dialog.setMinimumSize(QSize(645, 282))
         palette = QPalette()
         brush = QBrush(QColor(236, 236, 236, 255))
         brush.setStyle(Qt.SolidPattern)
@@ -99,7 +100,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"About", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"About Presto Change-O", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Presto Change-O", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p>(c) 2022-present <a href=\"https://www.ryanboyd.io\"><span style=\" text-decoration: underline; color:#0000ff;\">Ryan L. Boyd</span></a></p><p>For more info/instructions, see<br> <a href=\"https://github.com/Red-Warlock/Presto-Change-O\"><span style=\" text-decoration: underline; color:#0000ff;\">github.com/Red-Warlock/Presto-Change-O</span></a></p><p>This software is open source and *completely free* to use.</p></body></html>", None))
         self.imagelabel.setText("")

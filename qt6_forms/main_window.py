@@ -25,6 +25,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(672, 692)
+        MainWindow.setMinimumSize(QSize(672, 692))
         MainWindow.setContextMenuPolicy(Qt.NoContextMenu)
         icon = QIcon()
         icon.addFile(u":/PrestoChangeO/images/magic-wand-64x64.png", QSize(), QIcon.Normal, QIcon.Off)

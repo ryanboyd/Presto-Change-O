@@ -16,6 +16,12 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>645</width>
+    <height>282</height>
+   </size>
+  </property>
   <property name="palette">
    <palette>
     <active>
@@ -81,7 +87,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>About</string>
+   <string>About Presto Change-O</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources/resources.qrc">
