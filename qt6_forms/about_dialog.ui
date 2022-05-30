@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>642</width>
-    <height>291</height>
+    <width>645</width>
+    <height>282</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="palette">
    <palette>
@@ -56,18 +62,18 @@
      <colorrole role="WindowText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>120</red>
-        <green>120</green>
-        <blue>120</blue>
+        <red>236</red>
+        <green>236</green>
+        <blue>236</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>240</red>
-        <green>240</green>
-        <blue>240</blue>
+        <red>204</red>
+        <green>0</green>
+        <blue>0</blue>
        </color>
       </brush>
      </colorrole>
@@ -103,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>0</y>
       <width>381</width>
       <height>51</height>
      </rect>
@@ -112,7 +118,7 @@
      <font>
       <family>Segoe UI</family>
       <pointsize>24</pointsize>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -130,8 +136,8 @@
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>301</width>
-      <height>121</height>
+      <width>331</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
@@ -141,7 +147,10 @@
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(c) 2022-present &lt;a href=&quot;https://www.ryanboyd.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Ryan L. Boyd&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;This software is open source and *completely free* to use.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(c) 2022-present &lt;a href=&quot;https://www.ryanboyd.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Ryan L. Boyd&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;For more info/instructions, see&lt;br&gt; &lt;a href=&quot;https://github.com/Red-Warlock/Presto-Change-O&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;github.com/Red-Warlock/Presto-Change-O&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;This software is open source and *completely free* to use.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
     </property>
     <property name="wordWrap">
      <bool>true</bool>
@@ -193,6 +202,22 @@
    </property>
    <property name="text">
     <string>OK</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>-3</x>
+     <y>230</y>
+     <width>651</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="lineWidth">
+    <number>1</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>
