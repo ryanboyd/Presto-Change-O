@@ -1,4 +1,5 @@
 # ![Magic!](https://github.com/Red-Warlock/Presto-Change-O/blob/main/resources/images/magic-wand-64x64.png) Presto Change-O
+ Do you have a folder (or a *ton* of folders) containing a music collection that you want to convert from one format to another? This software is designed to get the job done for people with little-to-no programming experience. Convert an entire folder full of audio files to the format of your choice (e.g., FLAC, WAV, MP3, Ogg, ALAC, AAC, etc.).
 
 ## About
  Presto Change-O is a GUI program for batch converting audio files from one format to another. This software is primarily intended for people who do not have any programming experience, are not particularly savvy with computers, or just generally don't want to spend their time/energy learning about how to use transcoding tools. Made primarily in Python.
