@@ -166,3 +166,5 @@ waste_time.py
 log-conversions.txt
 settings.prf
 Sign EXE.bat
+external_apps/*.7z
+external_apps/*.zip
