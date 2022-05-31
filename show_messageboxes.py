@@ -26,14 +26,30 @@ class MessageBoxShower():
 
         return
 
-    def ShowInformationMessageBox(self, info_msg: str) -> None:
+    def ShowInformationMessageBox(self, info_msg: str, titlebarText: str) -> None:
         appIcon = QIcon()
         appIcon.addFile(u":/PrestoChangeO/images/magic-wand-64x64.png", QSize(), QIcon.Normal, QIcon.Off)
 
         msgBox = QMessageBox()
-        msgBox.setWindowTitle(f"{self.appId}: Information")
+        msgBox.setWindowTitle(f"{self.appId}: {titlebarText}")
         msgBox.setWindowIcon(appIcon)
         msgBox.setText(info_msg)
         msgBox.setStandardButtons(QMessageBox.Ok)
         msgBox.setIcon(QMessageBox.Information)
         ret = msgBox.exec()
+
+        return
+
+    def ShowWarningMessageBox(self, info_msg: str, titlebarText: str) -> None:
+        appIcon = QIcon()
+        appIcon.addFile(u":/PrestoChangeO/images/magic-wand-64x64.png", QSize(), QIcon.Normal, QIcon.Off)
+
+        msgBox = QMessageBox()
+        msgBox.setWindowTitle(f"{self.appId}: {titlebarText}")
+        msgBox.setWindowIcon(appIcon)
+        msgBox.setText(info_msg)
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setIcon(QMessageBox.Warning)
+        ret = msgBox.exec()
+
+        return

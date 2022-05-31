@@ -27,7 +27,7 @@ class AudioConverter(QThread):
     signals = None
 
     #used to terminate the thread when user hits cancel button
-    awaitingTermination = False
+    userCancelled = False
 
     #These are all generally used to suppress terminal windows when calling ffmpeg
     startupinfo = STARTUPINFO()
@@ -43,7 +43,7 @@ class AudioConverter(QThread):
         self.signals = WorkerSignals()
 
     def run(self):
-        self.awaitingTermination = False
+        self.userCancelled = False
         self.Perform_Conversions()
         return
 
@@ -61,7 +61,7 @@ class AudioConverter(QThread):
             for root, subdirs, files in os.walk(self.inputFolder):
                 for single_file in files:
 
-                    if self.awaitingTermination:
+                    if self.userCancelled:
                         break
 
                     if pathlib.Path(single_file.lower()).suffix == self.input_audio_format.file_extension:
@@ -142,10 +142,9 @@ class AudioConverter(QThread):
 
                         self.emit(SIGNAL("progress(int)"), progressPct)
 
-                if self.awaitingTermination:
+                if self.userCancelled:
                     break
 
-        self.awaitingTermination = False
         return
 
 

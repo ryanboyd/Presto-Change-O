@@ -113,7 +113,7 @@ class MainWindow(QMainWindow):
     def RunConversions(self):
 
         if self.audioConverter.isRunning():
-            self.audioConverter.awaitingTermination = True
+            self.audioConverter.userCancelled = True
             self.StatusReport(statusText="Cancelling... please wait...")
             return
 
@@ -202,7 +202,12 @@ class MainWindow(QMainWindow):
         self.ui.progressBar.setValue(100)
         self.ui.StatusLabel.setText("Finished!")
 
-        self.msgBox.ShowInformationMessageBox(info_msg="The conversion process has completed.")
+        if self.audioConverter.userCancelled == False:
+            self.msgBox.ShowInformationMessageBox(info_msg="The conversion process has completed.",
+                                                  titlebarText="Success!")
+        else:
+            self.msgBox.ShowWarningMessageBox(info_msg="The conversion process has been cancelled.",
+                                              titlebarText="Cancelled")
 
         self.ui.progressBar.setValue(0)
         self.ui.StatusLabel.setText("Waiting to process...")
@@ -292,3 +297,5 @@ class MainWindow(QMainWindow):
         except Exception as ex:
             print('Failed to export preferences file.')
             print(ex)
+
+        return

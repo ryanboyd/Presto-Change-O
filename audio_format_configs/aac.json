@@ -21,6 +21,14 @@
             "-b:a",
             "384k"
         ],
+        "Constant Bitrate (320 kBit/s)": [
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "320k"
+        ],
         "Constant Bitrate (256 kBit/s)": [
             "-c:v",
             "copy",
