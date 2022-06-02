@@ -168,3 +168,6 @@ settings.prf
 Sign EXE.bat
 external_apps/*.7z
 external_apps/*.zip
+build-bin-mac.sh
+build-bin-win.bat
+developer_log.json

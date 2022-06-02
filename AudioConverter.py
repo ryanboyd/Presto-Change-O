@@ -3,7 +3,16 @@ import pathlib
 
 from AudioFormatClass import *
 from shutil import copyfile
-from subprocess import Popen, PIPE, STARTUPINFO, STARTF_USESHOWWINDOW
+from subprocess import Popen, PIPE
+
+#this only is relevant if we're on a Windows computer. Otherwise,
+#it will simply throw an exception as these are not subprocess members on other platforms.
+if os.name == "nt":
+    from subprocess import STARTUPINFO, STARTF_USESHOWWINDOW
+    #These are all generally used to suppress terminal windows when calling ffmpeg
+    startupinfo = STARTUPINFO()
+    startupinfo.dwFlags |= STARTF_USESHOWWINDOW
+    CREATE_NO_WINDOW = 0x08000000
 
 from PySide6.QtCore import QThread, SIGNAL, Signal, QObject
 
@@ -29,10 +38,7 @@ class AudioConverter(QThread):
     #used to terminate the thread when user hits cancel button
     userCancelled = False
 
-    #These are all generally used to suppress terminal windows when calling ffmpeg
-    startupinfo = STARTUPINFO()
-    startupinfo.dwFlags |= STARTF_USESHOWWINDOW
-    CREATE_NO_WINDOW = 0x08000000
+
 
     #we have to specify this signal in order to call it later
     update_status = Signal(str)
@@ -111,9 +117,13 @@ class AudioConverter(QThread):
                         ffmpeg_cmd_to_execute.append(fileOut)
 
                         #subprocess.call(ffmpeg_cmd_to_execute, creationflags=self.CREATE_NO_WINDOW)
-                        p = Popen(ffmpeg_cmd_to_execute, stdin=logfile_out, stdout=logfile_out, stderr=logfile_out,
+                        if os.name=="nt":
+                            p = Popen(ffmpeg_cmd_to_execute, stdin=logfile_out, stdout=logfile_out, stderr=logfile_out,
                                   startupinfo=self.startupinfo,
                                   universal_newlines=True)
+                        else:
+                            p = Popen(ffmpeg_cmd_to_execute, stdin=logfile_out, stdout=logfile_out, stderr=logfile_out,
+                                      shell=False, universal_newlines=True)
                         output, err = p.communicate()
                         rc = p.returncode
 

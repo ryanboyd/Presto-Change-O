@@ -10,7 +10,11 @@ myappid = "Presto Change-O"
 current_version = "1.00"
 
 #important paths that we're going to work with
-ffmpeg_bin_path = os.path.join(os.getcwd(), "external_apps/ffmpeg-2022-05-26-git-0dcbe1c1aa-essentials_build/bin/")
+if os.name == "nt":
+    ffmpeg_bin_path = os.path.join(os.getcwd(), "external_apps/ffmpeg-5.0.1-essentials_build-win/")
+elif os.name == "posix":
+    ffmpeg_bin_path = os.path.join(os.getcwd(), "external_apps/ffmpeg-5.0.1-mac/")
+
 audio_format_configs_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "audio_format_configs")
 
 #dictionary that holds all of our file conversion data for ffmpeg, etc.
@@ -19,14 +23,15 @@ file_formats = {}
 
 def init():
     # Tell Windows that this is its own application and not just pythonw.exe
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+    if os.name=="nt":
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
     #load in all of the configs for each audio format
     for filename in os.listdir(audio_format_configs_dir):
 
         filename_extension = pathlib.Path(filename.lower()).suffix
 
-        if filename_extension  == ".json":
+        if filename_extension == ".json":
 
             with open(os.path.join(audio_format_configs_dir, filename), 'r', encoding='utf-8') as file_in:
 
