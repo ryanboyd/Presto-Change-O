@@ -9,10 +9,6 @@ from subprocess import Popen, PIPE
 #it will simply throw an exception as these are not subprocess members on other platforms.
 if os.name == "nt":
     from subprocess import STARTUPINFO, STARTF_USESHOWWINDOW
-    #These are all generally used to suppress terminal windows when calling ffmpeg
-    startupinfo = STARTUPINFO()
-    startupinfo.dwFlags |= STARTF_USESHOWWINDOW
-    CREATE_NO_WINDOW = 0x08000000
 
 from PySide6.QtCore import QThread, SIGNAL, Signal, QObject
 
@@ -30,6 +26,12 @@ class AudioConverter(QThread):
     input_audio_format: AudioFormat
     output_audio_format: AudioFormat
     encoding_settings: str
+
+    if os.name=="nt":
+        #These are all generally used to suppress terminal windows when calling ffmpeg
+        startupinfo = STARTUPINFO()
+        startupinfo.dwFlags |= STARTF_USESHOWWINDOW
+        CREATE_NO_WINDOW = 0x08000000
 
 
     #specify a variable to hold all of the signals used in WorkerSignals()
