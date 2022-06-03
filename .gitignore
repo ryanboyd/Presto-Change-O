@@ -171,3 +171,4 @@ external_apps/*.zip
 build-bin-mac.sh
 build-bin-win.bat
 developer_log.json
+build-dmg-mac.sh
