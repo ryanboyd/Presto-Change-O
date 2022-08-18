@@ -7,7 +7,7 @@ from AudioFormatClass import *
 #name of our application
 myappid = "Presto Change-O"
 
-current_version = "1.02"
+current_version = "1.03"
 
 #important paths that we're going to work with
 if os.name == "nt":

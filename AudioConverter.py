@@ -80,7 +80,7 @@ class AudioConverter(QThread):
                         outDir = root.replace(self.inputFolder, self.outputFolder)
 
                         if not os.path.exists(outDir):
-                            os.mkdir(outDir)
+                            os.makedirs(outDir)
 
                         #get the full path of the input file
                         fileIn = os.path.join(root, single_file)
