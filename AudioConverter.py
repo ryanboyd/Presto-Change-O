@@ -61,7 +61,7 @@ class AudioConverter(QThread):
         with open('log-conversions.txt', 'w', encoding='utf-8') as logfile_out:
 
             if not os.path.exists(self.outputFolder):
-                os.mkdir(self.outputFolder)
+                os.makedirs(self.outputFolder)
 
             total_number_of_files = float(sum([len(files) for r, d, files in os.walk(self.inputFolder)]))
             files_processed_counter = 0
@@ -141,7 +141,7 @@ class AudioConverter(QThread):
                             os.path.join(outDir, single_file)
 
                             if not os.path.exists(outDir):
-                                os.mkdir(outDir)
+                                os.makedirs(outDir)
 
                             copyfile(os.path.join(root, single_file), os.path.join(outDir, single_file))
 
